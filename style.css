@@ -1,0 +1,209 @@
+/* GERAIS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CONFIGS DARKMODE */
+:root {
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --text-color: #fff;
+  --stroke-color: #ffffff80;
+  --surface-color: #ffffff1a;
+  --surface-color-hover: #ffffff0d;
+  --highlight-color: #ffffff33;
+  --toggle-handle-color: #ffffff;
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --text-color: #000;
+  --stroke-color: #00000080;
+  --surface-color: #0000000d;
+  --surface-color-hover: #00000005;
+  --highlight-color: #0000001a;
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  background-image: var(--bg-url);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+/* CONTAINER INICIAL */
+#container {
+  margin: 56px auto 0;
+  padding: 0 24px;
+}
+
+/* PERFIL */
+#profile {
+  text-align: center;
+  height: 192px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*BOTAO SWITCH*/
+#switch {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  background: var(--toggle-handle-color) var(--switch-bg-url) no-repeat center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 0;
+  display: inline-flex;
+  align-items: flex-start;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  animation: slide-out 0.5s;
+}
+
+#switch button:hover {
+  outline: solid 8px var(--highlight-color);
+}
+
+.light #switch button {
+  animation: slide-in 0.5s forwards;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+}
+
+/*LINKS DA LISTA*/
+ul {
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  margin: 0 auto;
+}
+
+ul li a {
+  display: flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+ul li a:hover {
+  border: 1.5px solid var(--text-color);
+  background: var(--surface-color-hover);
+}
+
+/* REDES SOCIAIS */
+#social {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  padding: 24px 0;
+  justify-content: center;
+  align-self: center;
+}
+
+#social a {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+#social a ion-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+#social a:hover {
+  padding: 16px;
+  background-color: var(--highlight-color);
+  border-radius: 50%;
+}
+
+/*RODAPÉ*/
+footer p {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 12px;
+  padding: 24px;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+
+  ul {
+    width: 600px;
+  }
+}
+
+/*ANIMATIONS*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
